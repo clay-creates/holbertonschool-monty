@@ -2,6 +2,7 @@
 
 /***/
 
-void add(void)
+void add(stack_t **stack, unsigned int line_number)
 {
+    ...
 }
