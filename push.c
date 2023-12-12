@@ -14,5 +14,5 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	new_node->line_number = line_number;
 	new_node->next = *stack;
-	*stack - new_node;
+	*stack = new_node;
 }
