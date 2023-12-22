@@ -2,13 +2,13 @@
 
 instruction_t instruction[] =
 	{
-		{"push", (void (*)(stack_t **, unsigned int))push},
-		{"pall", (void (*)(stack_t **, unsigned int))pall},
-		{"pint", (void (*)(stack_t **, unsigned int))pint},
-		{"pop", (void (*)(stack_t **, unsigned int))pop},
-		{"swap", (void (*)(stack_t **, unsigned int))swap},
-		{"add", (void (*)(stack_t **, unsigned int))add},
-		{"nop", (void (*)(stack_t **, unsigned int))nop},
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
 };
 
 /**
