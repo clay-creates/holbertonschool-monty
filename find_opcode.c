@@ -15,7 +15,7 @@ instruction_t instruction[] =
 
 void find_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 {
-    int i;
+    size_t i;
 
     for (i = 0; i < sizeof(instruction) / sizeof(instruction[0]); i++)
     {
