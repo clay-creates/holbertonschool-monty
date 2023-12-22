@@ -2,7 +2,7 @@
 
 /**
  * push - opcode to push an element onto the stack
- * @stack: double pointer to the beginning of the stack
+ * @stack: pointer to the beginning of the stack
  * @line_number: line number being executed
  */
 
