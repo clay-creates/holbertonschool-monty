@@ -2,67 +2,38 @@
 
 /**
  * main - entry point
- * @argc: arg count
- * @argv: array or arguments
- *
- * Return: return 1 or 0 based on success or fail
+ * @argc: number of arguments
+ * @argv: array of arguments
+ * Return: EXIT_SUCCESS or EXIT_FAILURE
  */
-
 int main(int argc, char *argv[])
 {
-	FILE *fp;
+	FILE *file;
 	char *line = NULL;
 	size_t len = 0;
-	ssize_t read;
-	int line_number = 0;
+	unsigned int line_number = 0;
 	stack_t *stack = NULL;
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: monty file\n");
-		return (EXIT_FAILURE);
+		fprintf(stderr, "Usage: %s <file>\n", argv[0]);
+		exit(EXIT_FAILURE);
 	}
 
-	fp = fopen(argv[1], "r");
-	if (fp == NULL)
+	file = fopen(argv[1], "r");
+	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		return (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 
-	while ((read = getline(&line, &len, fp)) != -1)
+	while (getline(&line, &len, file) != -1)
 	{
 		line_number++;
-
-		// TODO: Add parsing and opcode execution code here
-		char *token = strtok(line, "\t\n ");
-		if (token == NULL)
-		{
-			continue;
-		}
-
-		instruction_t instructions[] =
-			{
-				{"push", push},
-				{"pall", pall},
-				{"pint", pint},
-				{"pop", pop},
-				{"swap", swap},
-				{"add", add},
-				{"nop", nop},
-				{NULL, NULL}};
-
-		void (*opcode_func)(stack_t **, unsigned int) = find_opcode(token, instructions);
-		if (opcode_func == NULL)
-		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
-			return (EXIT_FAILURE);
-		}
-		opcode_func(&stack, line_number);
+		execute_instruction(line, &stack, line_number);
 	}
 
 	free(line);
-	fclose(fp);
-
-	return (EXIT_SUCCESS);
+	fclose(file);
+	return EXIT_SUCCESS;
 }
