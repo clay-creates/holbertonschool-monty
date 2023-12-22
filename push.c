@@ -5,12 +5,11 @@
  * @stack: double pointer to the beginning of the stack
  * @line_number: line number being executed
  */
+
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 	char *value_str;
-
-	UNUSED(line_number);
 
 	value_str = strtok(NULL, " \n");
 	if (!value_str)

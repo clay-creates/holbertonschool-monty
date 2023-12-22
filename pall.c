@@ -5,11 +5,10 @@
  * @stack: pointer to the beginning of the stack
  * @line_number: line number being executed
  */
+
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
-
-	UNUSED(line_number);
 
 	while (current)
 	{
