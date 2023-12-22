@@ -13,7 +13,8 @@ void execute_instruction(char *line, stack_t **stack, unsigned int line_number)
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
-		/* Add more opcodes as needed */
+		{"pint", pint},
+
 		{NULL, NULL}};
 
 	opcode = strtok(line, " \n");
