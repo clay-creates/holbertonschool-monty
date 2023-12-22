@@ -1,16 +1,5 @@
 #include "monty.h"
 
-instruction_t instruction[] =
-	{
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-};
-
 /**
  * find_opcode - finds the opcode to use
  * @opcode: opcode to search for

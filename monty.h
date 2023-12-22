@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stddef.h>
 #include <ctype.h>
+#include <sys/types.h>
 
 #define MAX_SIZE 1000
 
