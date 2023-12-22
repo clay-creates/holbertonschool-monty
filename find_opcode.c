@@ -11,11 +11,11 @@ void find_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 {
 	size_t i;
 
-	for (i = 0; i < sizeof(instruction) / sizeof(instruction[0]); i++)
+	for (i = 0; i < sizeof(instruction_t) / sizeof(instruction_t[0]); i++)
 	{
-		if (strcmp(opcode, instruction[i].opcode) == 0)
+		if (strcmp(opcode, instructions[i].opcode) == 0)
 		{
-			instruction[i].f(stack, line_number);
+			instructions[i].f(stack, line_number);
 			return;
 		}
 	}
